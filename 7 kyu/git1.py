@@ -5,14 +5,24 @@ from datetime import datetime
 PATH_OF_GIT_REPO = r'S:/Everything/codewars/'  # make sure .git folder is properly configured
 COMMIT_MESSAGE = "Last Sync: " + datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-
-def git_push():
-    repo = Repo(PATH_OF_GIT_REPO)
-    repo.git.add(A=True)
-    repo.index.commit(COMMIT_MESSAGE)
-    origin = repo.remote(name='origin')
-    origin.push()
+repo = Repo(PATH_OF_GIT_REPO)
+git = repo.git
+git.add(A=True)
+git.commit('-m', COMMIT_MESSAGE)
+git.push()
 
 
-git_push()
+# git_push()
 # datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+# Gives a list of the differing objects
+# diff_list = repo.head.commit.diff()
+
+# for diff in diff_list:
+#     # Print the old file path
+#     print(diff.a_path)
+
+#     # Print the new file path. If the filename (or path) was changed it will differ
+#     print(diff.b_path)
+
+# # Too many options to show. This gives a comprehensive description of what is available
+# print(diff_list)
