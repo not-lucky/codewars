@@ -35,5 +35,5 @@ for repo_path in git_repos:
 #     # Print the new file path. If the filename (or path) was changed it will differ
 #     print(diff.b_path)
 
-# # Too many options to show. This gives a comprehensive description of what is available
+# Too many options to show. This gives a comprehensive description of what is available
 # print(diff_list)
