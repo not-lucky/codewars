@@ -14,11 +14,11 @@ def git_push(repo_path):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     try:
         git.commit('-m', "Last Sync: " + current_time)
-        git.push()
     except Exception as e:
         with open(f'S:/Everything/git_errors_{repo_name}.txt', 'a') as git_errors:
             print(e, current_time, file=git_errors)
-
+    else:
+        git.push()
 
 for repo_path in git_repos:
     git_push(repo_path)
