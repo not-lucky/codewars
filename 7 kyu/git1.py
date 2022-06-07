@@ -9,10 +9,9 @@ git_repos = ['S:/Everything/codewars/', 'S:/obsidian_vault/lucky/notes', ]
 def git_push(repo_path):
     git = Repo(repo_path).git
     git.add(A=True)
-
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    git.commit('-m', "Last Sync: " + current_time)
     try:
+        git.commit('-m', "Last Sync: " + current_time)
         git.push()
     except Exception as e:
         with open('S:/Everything/git_errors.txt', 'a') as git_errors:
